@@ -104,8 +104,15 @@ class SortingRobot:
             while self.can_move_right():
                 self.compare_current_with_next()
                 self.move_right()
-        
-        pass
+
+            if not self.light_is_on():
+                break
+            else:
+                self.set_light_off()
+            while self.can_move_left():
+                self.compare_current_with_next()
+                self.move_left()
+
 
     def move_to_start(self):
         while self.can_move_left():
@@ -120,6 +127,7 @@ class SortingRobot:
                 self.set_light_on()
             self.move_left()
             self.swap_item()
+        
         
 
 
